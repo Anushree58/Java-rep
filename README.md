@@ -1,1 +1,16 @@
-# Java-rep
+# ONLINE VOTING SYSTEM 
+## Project Overview
+This is a Java-based Online Voting System where:
+- Voters can log in and cast their vote.
+- Admin can manage candidates and view results.
+- Candidates can view their party and votes.
+
+## Team Members
+- Anushree (Team Lead)
+- Krithika
+- Ananthu
+- Gayana
+
+## Daily Progress
+- Sep 19, 2025: Added prototype document (Login, Voting, Admin Panel) – Krithika
+- Sep 19, 2025: Started HTML login page design – Krithika
