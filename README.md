@@ -14,3 +14,5 @@ This is a Java-based Online Voting System where:
 ## Daily Progress
 - Sep 19, 2025: Added prototype document (Login, Voting, Admin Panel) – Krithika
 - Sep 19, 2025: Started HTML login page design – Krithika
+- sep 20,2025: Implemented `User` class with login and voting methods.-Anushree
+ 
