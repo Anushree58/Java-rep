@@ -1,0 +1,92 @@
+class Candidate {
+    String candidateId;
+    String candidateName;
+    String party;
+    int votes;
+
+    // Constructor
+    Candidate(String candidateId, String candidateName, String party) {
+        this.candidateId = candidateId;
+        this.candidateName = candidateName;
+        this.party = party;
+        this.votes = 0;  // default votes = 0
+    }
+
+    // Method to add a vote
+    void addVote() {
+        votes++;
+    }
+
+    // Method to view votes
+    void viewVotes() {
+        System.out.println(candidateName + " (" + party + "): " + votes + " votes");
+    }
+}
+
+class Admin {
+    String adminId;
+    String username;
+    String password;
+    ArrayList<Candidate> candidates = new ArrayList<>();
+
+    // Constructor
+    Admin(String adminId, String username, String password) {
+        this.adminId = adminId;
+        this.username = username;
+        this.password = password;
+    }
+
+    // Method for login verification
+    boolean login(String inputUser, String inputPass) {
+        return this.username.equals(inputUser) && this.password.equals(inputPass);
+    }
+
+    // Method to add candidate
+    void addCandidate(Candidate c) {
+        candidates.add(c);
+        System.out.println("Candidate " + c.candidateName + " added successfully!");
+    }
+
+    // Method to delete candidate
+    void deleteCandidate(String candidateId) {
+        candidates.removeIf(c -> c.candidateId.equals(candidateId));
+        System.out.println("Candidate removed successfully!");
+    }
+
+    // Method to view results
+    void viewResults() {
+        System.out.println("\n--- Election Results ---");
+        for (Candidate c : candidates) {
+            c.viewVotes();
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create Admin
+        Admin admin = new Admin("A001", "admin", "1234");
+
+        // Admin login
+        if(admin.login("admin", "1234")) {
+            System.out.println("Admin Login Successful!");
+
+            // Add candidates
+            Candidate c1 = new Candidate("C001", "Candidate A", "Party X");
+            Candidate c2 = new Candidate("C002", "Candidate B", "Party Y");
+
+            admin.addCandidate(c1);
+            admin.addCandidate(c2);
+
+            // Simulate voting
+            c1.addVote();
+            c2.addVote();
+            c2.addVote();
+
+            // View results
+            admin.viewResults();
+        } else {
+            System.out.println("Admin Login Failed!");
+        }
+    }
+}
