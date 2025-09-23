@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Voting Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #d6f5d6; /* light green */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .vote-box {
+      background-color: #3399ff; /* blue */
+      color: white;
+      width: 400px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .vote-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .candidate {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .candidate label {
+      font-size: 16px;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      background-color: #004080;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .submit-btn:hover {
+      background-color: #003366;
+    }
+
+    .footer-note {
+      margin-top: 15px;
+      font-size: 14px;
+      text-align: center;
+      font-style: italic;
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="vote-box">
+    <h2>Cast Your Vote</h2>
+    <form>
+      <div class="candidate">
+        <label>
+          <input type="radio" name="candidate" value="Candidate 1">
+          Candidate 1
+        </label>
+      </div>
+      <div class="candidate">
+        <label>
+          <input type="radio" name="candidate" value="Candidate 2">
+          Candidate 2
+        </label>
+      </div>
+      <div class="candidate">
+        <label>
+          <input type="radio" name="candidate" value="Candidate 3">
+          Candidate 3
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Vote</button>
+      <p class="footer-note">Each voter can vote only once. Your vote will remain confidential.</p>
+    </form>
+  </div>
+</body>
+</html>
