@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body {
+            background-color: #ccffcc; /* Light green background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px;
+            gap: 50px;
+        }
+
+        .dashboard {
+            background-color: #3399ff; /* Blue box */
+            color: white;
+            padding: 40px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .dashboard h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .dashboard ul li {
+            background-color: #66b3ff;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dashboard ul li:hover {
+            background-color: #4d94ff;
+        }
+
+        .statistics {
+            background-color: #3399ff;
+            color: white;
+            padding: 40px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .statistics h3 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .statistics p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .logout-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: #ff3333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Dashboard Options -->
+        <div class="dashboard">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li>Add Candidate</li>
+                <li>Manage Vote</li>
+                <li>New Results</li>
+                <li>System Settings</li>
+            </ul>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="statistics">
+            <h3>Statistics</h3>
+            <p>Total Votes Casted: 120</p>
+            <p>Total Candidates Participated: 5</p>
+            <p>Registered Voters: 200</p>
+            <button class="logout-btn">Logout</button>
+        </div>
+    </div>
+</body>
+</html>
