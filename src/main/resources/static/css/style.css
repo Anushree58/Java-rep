@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: auto;
+    padding: 1rem;
+}
+
+input, select, button {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+#message, #voteMessage, #candidateMessage {
+    margin-top: 1rem;
+    color: green;
+}

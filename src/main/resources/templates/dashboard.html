@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<h1>Candidate List</h1>
+<div id="candidateList"></div>
+<div id="voteMessage"></div>
+
+<script>
+    let userId = prompt("Enter your User ID to vote:");
+
+    async function fetchCandidates() {
+        const res = await fetch('/api/candidates');
+        const candidates = await res.json();
+        const container = document.getElementById('candidateList');
+        container.innerHTML = '';
+
+        candidates.forEach(c => {
+            const btn = document.createElement('button');
+            btn.textContent = `Vote for ${c.name} (${c.voteCount} votes)`;
+            btn.onclick = () => castVote(c.id);
+            container.appendChild(btn);
+            container.appendChild(document.createElement('br'));
+        });
+    }
+
+    async function castVote(candidateId) {
+        const res = await fetch(`/api/vote?userId=${userId}&candidateId=${candidateId}`, {
+            method: 'POST'
+        });
+        const text = await res.text();
+        document.getElementById('voteMessage').textContent = text;
+        if(text === 'Vote cast successfully!') {
+            fetchCandidates();
+        }
+    }
+
+    fetchCandidates();
+</script>
+</body>
+</html>

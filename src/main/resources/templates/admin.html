@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<h1>Add Candidate</h1>
+<form id="candidateForm">
+    <input type="text" id="candidateName" placeholder="Candidate Name" required />
+    <input type="number" id="adminUserId" placeholder="Your Admin User ID" required />
+    <button type="submit">Add Candidate</button>
+</form>
+<div id="candidateMessage"></div>
+
+<h1>Results</h1>
+<div id="results"></div>
+
+<script>
+    const candidateForm = document.getElementById('candidateForm');
+    const candidateMessage = document.getElementById('candidateMessage');
+    const resultsDiv = document.getElementById('results');
+
+    candidateForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('candidateName').value;
+        const adminUserId = document.getElementById('adminUserId').value;
+
+        const res = await fetch(`/api/admin/candidates?adminUserId=${adminUserId}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name })
+        });
+
+        const data = await res.json().catch(() => null);
+        if (res.ok) {
+            candidateMessage.textContent = `Candidate "${data.name}" added successfully.`;
+            loadResults();
+        } else {
+            candidateMessage.textContent = typeof data === 'string' ? data : 'Failed to add candidate.';
+        }
+    });
+
+    async function loadResults() {
+        const res = await fetch('/api/admin/results');
+        const candidates = await res.json();
+        resultsDiv.innerHTML = '<ul>' + candidates.map(c => `<li>${c.name} - Votes: ${c.voteCount}</li>`).join('') + '</ul>';
+    }
+
+    loadResults();
+</script>
+</body>
+</html>
